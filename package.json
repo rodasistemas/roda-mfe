@@ -16,6 +16,7 @@
     "wsrun": "^5.2.4"
   },
   "scripts": {
-    "start:all": "wsrun run start"
+    "start:all": "wsrun run start",
+    "prepare": "husky install"
   }
 }
