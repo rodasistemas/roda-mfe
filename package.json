@@ -1,0 +1,21 @@
+{
+  "name": "mfe",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@roda/home": "1.0.0",
+    "@roda/root": "1.0.0"
+  },
+  "devDependencies": {
+    "wsrun": "^5.2.4"
+  },
+  "scripts": {
+    "start:all": "wsrun run start"
+  }
+}
