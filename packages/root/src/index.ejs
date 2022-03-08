@@ -12,7 +12,7 @@
     browsers. More information at https://github.com/single-spa/create-single-spa/issues/112
   -->
   <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js"></script>
-
+<link rel="stylesheet" href="/css/index.css" type="text/css" />
   <!--
     This CSP allows any SSL-enabled host and for arbitrary eval(), but you should limit these directives further to increase your app's security.
     Learn more about CSP policies at https://content-security-policy.com/#directive
@@ -31,31 +31,11 @@
 
     More information about shared dependencies can be found at https://single-spa.js.org/docs/recommended-setup#sharing-with-import-maps.
   -->
-  <script type="systemjs-importmap">
-    {
-      "imports": {
-        "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
-        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
-        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js"
-      }
-    }
-  </script>
+  <script type="systemjs-importmap" src="/js/importmap.json"></script>
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
 
   <!-- Add your organization's prod import map URL to this script's src  -->
-  <!-- <script type="systemjs-importmap" src="/importmap.json"></script> -->
-
-  <% if (isLocal) { %>
-  <script type="systemjs-importmap">
-    {
-      "imports": {
-        "@roda/home": "//localhost:3000/roda-home.js",
-        "@roda/root": "//localhost:9000/roda-root.js"
-      }
-    }
-  </script>
-  <% } %>
-
+  
   <!--
     If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded
     Learn more about why at https://single-spa.js.org/docs/ecosystem-angular/#zonejs
@@ -72,13 +52,23 @@
   <% } %>
 
 </head>
+
 <body>
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
+  <main>
   <script>
-    System.import('@roda/root');
-  </script>
+    System.import('@roda/layout').then((teste)=>{
+      console.log({teste});
+      System.import('@roda/root');
+    });
+    </script>
+    </main>
+<template>  
+  
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+  </template>
 </body>
+
 </html>

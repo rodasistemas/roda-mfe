@@ -1,0 +1,20 @@
+{
+  "containerEl": "main",
+  "routes": [
+    {
+      "type": "application",
+      "name": "@roda/layout"
+    },
+    {
+      "type": "route",
+
+      "routes": [
+        {
+          "type": "application",
+          "name": "@roda/home"
+        }
+      ],
+      "default": true
+    }
+  ]
+}

@@ -4,9 +4,9 @@ import {
   constructRoutes,
   constructLayoutEngine,
 } from "single-spa-layout";
-import microfrontendLayout from "./microfrontend-layout.html";
+import Routes from "../public/js/routes.json";
 
-const routes = constructRoutes(microfrontendLayout);
+const routes = constructRoutes(Routes);
 const applications = constructApplications({
   routes,
   loadApp({ name }) {
